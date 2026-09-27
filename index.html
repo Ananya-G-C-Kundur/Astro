@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="kn">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+
+    <meta name="theme-color" content="#071b49">
+
+    <meta name="description"
+        content="ಮುಖ ಜ್ಯೋತಿಷ್ಯ - Face Astrology entertainment app">
+
+    <title>ಮುಖ ಜ್ಯೋತಿಷ್ಯ • Face Astrology</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #061638;
+            --blue: #08245b;
+            --gold: #ffd65a;
+            --purple: #773de8;
+            --green: #13a88a;
+            --primary: #1478e8;
+            --ink: #102044;
+            --light: #eef3ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--navy);
+            font-family:
+                system-ui,
+                -apple-system,
+                "Noto Sans Kannada",
+                "Noto Sans",
+                sans-serif;
+            color: white;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            touch-action: manipulation;
+        }
+
+        .app {
+            max-width: 520px;
+            min-height: 100vh;
+            margin: auto;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #08245b,
+                    #061638 58%,
+                    #091d46
+                );
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            padding: 14px 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+
+            background: rgba(8, 36, 91, 0.96);
+
+            backdrop-filter: blur(12px);
+
+            z-index: 10;
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+        }
+
+        .sub {
+            font-size: 11px;
+            color: #dce7ff;
+        }
+
+        .lang {
+            width: auto;
+
+            border: 1px solid #d9ae3c;
+
+            border-radius: 20px;
+
+            padding: 7px 11px;
+
+            background: transparent;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+        /* ================= MAIN ================= */
+
+        main {
+            padding: 14px 15px 30px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            border: 1px solid #d9ae3c;
+
+            border-radius: 20px;
+
+            padding: 23px 17px;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 8%,
+                    #563f8d,
+                    #102c67 55%,
+                    #081a3d
+                );
+
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .om {
+            font-size: 40px;
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            margin: 3px 0;
+
+            color: var(--gold);
+
+            font-size: 28px;
+        }
+
+        .hero p {
+            line-height: 1.55;
+
+            margin: 8px 0;
+
+            color: #e9efff;
+        }
+
+        /* ================= GRID ================= */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 11px;
+
+            margin-top: 14px;
+        }
+
+        /* ================= CARD ================= */
+
+        .card,
+        .result {
+            background: white;
+
+            color: var(--ink);
+
+            border-radius: 17px;
+
+            padding: 15px;
+
+            border: 1px solid #d7e1f7;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ================= BUTTONS ================= */
+
+        button {
+            width: 100%;
+
+            border: 0;
+
+            border-radius: 14px;
+
+            padding: 14px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .blue {
+            background: var(--primary);
+            color: white;
+        }
+
+        .green {
+            background: var(--green);
+            color: white;
+        }
+
+        .purple {
+            background: var(--purple);
+            color: white;
+
+            margin-top: 12px;
+        }
+
+        .gold {
+            background: var(--gold);
+            color: #211600;
+        }
+
+        .outline {
+            background: white;
+
+            color: #17366f;
+
+            border: 1px solid #b7c8e8;
+        }
+
+        /* ================= HOME CARDS ================= */
+
+        .icon {
+            font-size: 28px;
+        }
+
+        .card b {
+            display: block;
+
+            margin-top: 5px;
+        }
+
+        .note {
+            font-size: 11px;
+
+            color: #aab9d8;
+
+            margin-top: 13px;
+
+            text-align: center;
+
+            line-height: 1.5;
+        }
+
+        /* ================= LIST ================= */
+
+        .list {
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+
+            padding: 11px 0;
+
+            border-bottom: 1px solid #e5ebf5;
+        }
+
+        .list:last-child {
+            border-bottom: 0;
+        }
+
+        .list small {
+            color: #61718e;
+
+            display: block;
+
+            margin-top: 3px;
+        }
+
+        .bubble {
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            background: #e9efff;
+
+            font-size: 21px;
+
+            flex: none;
+        }
+
+        /* ================= ANALYSIS ================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+        .preview {
+            width: 100%;
+
+            max-height: 390px;
+
+            object-fit: cover;
+
+            border-radius: 14px;
+
+            background: #dce5f5;
+
+            display: block;
+        }
+
+        .progress {
+            height: 9px;
+
+            background: #dce5f5;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+
+            width: 0%;
+
+            background: var(--purple);
+
+            transition: width 0.45s;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+
+            border: 5px solid #dce5f5;
+
+            border-top-color: var(--purple);
+
+            border-radius: 50%;
+
+            animation: spin 1s linear infinite;
+
+            margin: 6px auto 14px;
+        }
+
+        @keyframes spin {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        /* ================= REPORT ================= */
+
+        .result {
+            margin-top: 12px;
+        }
+
+        .result h2 {
+            color: #183a78;
+
+            margin: 0 0 8px;
+
+            font-size: 19px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 6px 9px;
+
+            border-radius: 12px;
+
+            background: #f4eaff;
+
+            color: #5c2db8;
+
+            font-size: 12px;
+
+            margin: 3px;
+        }
+
+        .small {
+            font-size: 12px;
+
+            color: #61718e;
+
+            line-height: 1.5;
+        }
+
+        .score {
+            font-size: 26px;
+
+            font-weight: 900;
+
+            color: var(--purple);
+        }
+
+        /* ================= TOAST ================= */
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+
+            bottom: 20px;
+
+            transform: translateX(-50%);
+
+            background: #111d38;
+
+            color: white;
+
+            padding: 11px 15px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+            display: none;
+
+            z-index: 20;
+
+            font-size: 13px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 18px;
+
+            color: #aab9d8;
+
+            font-size: 11px;
+        }
+
+        /* ================= DESKTOP ================= */
+
+        @media (min-width: 700px) {
+
+            body {
+                padding: 18px 0;
+            }
+
+            .app {
+                border-radius: 24px;
+
+                overflow: hidden;
+            }
+
+        }
+
+        /* ================= PRINT ================= */
+
+        @media print {
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            header,
+            footer,
+            .outline,
+            .grid,
+            .note {
+                display: none !important;
+            }
+
+            .app {
+                max-width: 100%;
+                background: white;
+            }
+
+            .result {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div>
+
+            <div class="logo">
+                ಮುಖ ಜ್ಯೋತಿಷ್ಯ
+            </div>
+
+            <div class="sub">
+                Face Astrology
+            </div>
+
+        </div>
+
+        <button
+            class="lang"
+            id="langBtn"
+            onclick="toggleLang()">
+
+            ಕನ್ನಡ / EN
+
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= HOME ================= -->
+
+        <section id="home">
+
+            <div class="hero">
+
+                <div class="om">
+                    ॐ
+                </div>
+
+                <h1 id="title">
+                    ಮುಖ ಜ್ಯೋತಿಷ್ಯ
+                </h1>
+
+                <p id="heroText">
+                    ನಿಮ್ಮ ಮುಖದ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಆಧರಿಸಿದ
+                    ಸಾಂಪ್ರದಾಯಿಕ ಓದು
+                </p>
+
+            </div>
+
+
+            <!-- CAMERA + GALLERY -->
+
+            <div class="grid">
+
+                <!-- CAMERA -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        📷
+                    </div>
+
+                    <b id="takeTxt">
+                        ಫೋಟೋ ತೆಗೆದುಕೊಳ್ಳಿ
+                    </b>
+
+                    <input
+                        id="camera"
+                        type="file"
+                        accept="image/*"
+                        capture="user"
+                        hidden>
+
+                    <button
+                        class="blue"
+                        id="takeBtn"
+                        onclick="openCamera()">
+
+                        Take Photo
+
+                    </button>
+
+                </div>
+
+
+                <!-- GALLERY -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        🖼️
+                    </div>
+
+                    <b id="galleryTxt">
+                        Gallery
+                    </b>
+
+                    <input
+                        id="gallery"
+                        type="file"
+                        accept="image/*"
+                        hidden>
+
+                    <button
+                        class="green"
+                        id="chooseBtn"
+                        onclick="openGallery()">
+
+                        Choose
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- START -->
+
+            <button
+                class="purple"
+                id="startBtn"
+                onclick="openGallery()">
+
+                🔮 Face Reading ಪ್ರಾರಂಭಿಸಿ
+
+            </button>
+
+
+            <!-- FEATURES -->
+
+            <div
+                class="card"
+                style="margin-top:14px">
+
+                <div class="list">
+
+                    <div class="bubble">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Personality
+                        </b>
+
+                        <small>
+                            ವ್ಯಕ್ತಿತ್ವದ ಸಾಂಪ್ರದಾಯಿಕ ಸೂಚನೆಗಳು
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="list">
+
+                    <div class="bubble">
+                        💼
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Career
+                        </b>
+
+                        <small>
+                            ವೃತ್ತಿ ಮತ್ತು ಸಾಮರ್ಥ್ಯ
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="list">
+
+                    <div class="bubble">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Finance
+                        </b>
+
+                        <small>
+                            ಹಣಕಾಸಿನ ಸಾಮಾನ್ಯ ಸೂಚನೆಗಳು
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="list">
+
+                    <div class="bubble">
+                        ❤️
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Relationships
+                        </b>
+
+                        <small>
+                            ಸಂಬಂಧಗಳ ಬಗ್ಗೆ ಸಾಂಪ್ರದಾಯಿಕ ಓದು
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p
+                class="note"
+                id="disclaimer">
+
+                ಮನರಂಜನೆಗಾಗಿ ಮಾತ್ರ.
+                ಮುಖದ ವೈಶಿಷ್ಟ್ಯಗಳಿಂದ ವ್ಯಕ್ತಿತ್ವ ಅಥವಾ
+                ಭವಿಷ್ಯವನ್ನು ವೈಜ್ಞಾನಿಕವಾಗಿ
+                ನಿರ್ಧರಿಸಲಾಗುವುದಿಲ್ಲ.
+
+            </p>
+
+        </section>
+
+
+        <!-- ================= ANALYSIS ================= -->
+
+        <section
+            id="analysis"
+            class="hidden">
+
+            <button
+                class="outline"
+                onclick="show('home')">
+
+                ← Back
+
+            </button>
+
+
+            <h2 id="analysisTitle">
+                ಫೋಟೋ ವಿಶ್ಲೇಷಣೆ
+            </h2>
+
+
+            <img
+                id="photo"
+                class="preview"
+                alt="Selected face">
+
+
+            <div
+                class="card"
+                style="margin-top:12px;text-align:center">
+
+                <div class="spinner"></div>
+
+
+                <p id="analysisStatus">
+
+                    ನಿಮ್ಮ ಫೋಟೋವನ್ನು
+                    ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ…
+
+                </p>
+
+
+                <div class="progress">
+
+                    <div
+                        class="bar"
+                        id="bar">
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="checks"
+                    style="text-align:left">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORT ================= -->
+
+        <section
+            id="report"
+            class="hidden">
+
+            <button
+                class="outline"
+                onclick="show('home')">
+
+                ← Back
+
+            </button>
+
+
+            <h2 style="color:#ffd65a">
+
+                ✨
+
+                <span id="reportTitle">
+                    ನಿಮ್ಮ ಮುಖದ ಓದು
+                </span>
+
+            </h2>
+
+
+            <!-- PHOTO -->
+
+            <div id="reportPhoto"></div>
+
+
+            <!-- FEATURES -->
+
+            <div class="result">
+
+                <h2>
+                    ⭐ ಮುಖ್ಯ ಲಕ್ಷಣಗಳು
+                </h2>
+
+                <div id="tags"></div>
+
+                <p class="small">
+
+                    ಈ ಲಕ್ಷಣಗಳು ಸಾಂಪ್ರದಾಯಿಕ
+                    face-reading ಕಲ್ಪನೆಗಳ ಆಧಾರದ
+                    ಮೇಲೆ ಮನರಂಜನಾ ವಿವರಣೆಗಳಾಗಿವೆ.
+
+                </p>
+
+            </div>
+
+
+            <!-- PERSONALITY -->
+
+            <div class="result">
+
+                <h2>
+                    👤 ವ್ಯಕ್ತಿತ್ವ
+                </h2>
+
+                <p id="personality"></p>
+
+            </div>
+
+
+            <!-- CAREER -->
+
+            <div class="result">
+
+                <h2>
+                    💼 Career
+                </h2>
+
+                <p id="career"></p>
+
+            </div>
+
+
+            <!-- FINANCE -->
+
+            <div class="result">
+
+                <h2>
+                    💰 Finance
+                </h2>
+
+                <p id="finance"></p>
+
+            </div>
+
+
+            <!-- RELATIONSHIP -->
+
+            <div class="result">
+
+                <h2>
+                    ❤️ Relationships
+                </h2>
+
+                <p id="relationship"></p>
+
+            </div>
+
+
+            <!-- LUCKY -->
+
+            <div class="result">
+
+                <h2>
+                    🍀 Lucky
+                </h2>
+
+                <p>
+
+                    <b>
+                        Lucky Number:
+                    </b>
+
+                    <span
+                        id="number"
+                        class="score">
+                    </span>
+
+                    <br>
+
+                    <b>
+                        Lucky Color:
+                    </b>
+
+                    <span id="color">
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="grid">
+
+                <button
+                    class="blue"
+                    onclick="saveReport()">
+
+                    💾 Save
+
+                </button>
+
+
+                <button
+                    class="purple"
+                    onclick="shareReport()">
+
+                    ↗ Share
+
+                </button>
+
+            </div>
+
+
+            <p class="note">
+
+                ⚠️ ಇದು ಮನರಂಜನಾ ಉದ್ದೇಶದ
+                ಸಾಂಪ್ರದಾಯಿಕ ಓದು ಮಾತ್ರ.
+
+                ಹಣಕಾಸು, ಆರೋಗ್ಯ, ವಿವಾಹ ಅಥವಾ
+                ಜೀವನದ ಪ್ರಮುಖ ನಿರ್ಧಾರಗಳನ್ನು
+                ಇದರ ಆಧಾರದ ಮೇಲೆ ತೆಗೆದುಕೊಳ್ಳಬೇಡಿ.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        ಮುಖ ಜ್ಯೋತಿಷ್ಯ • Face Astrology
+
+        <br>
+
+        Privacy-first demo • v2.0
+
+    </footer>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script>
+
+    /* =====================================================
+       GLOBAL VARIABLES
+    ===================================================== */
+
+    let lastUrl = "";
+
+    let currentLang = "kn";
+
+    let currentData = null;
+
+
+    /* =====================================================
+       DOM SHORTCUT
+    ===================================================== */
+
+    function $(id) {
+
+        return document.getElementById(id);
+
+    }
+
+
+    /* =====================================================
+       FACE READING DATA
+    ===================================================== */
+
+    const readings = [
+
+        {
+
+            shape: "Oval",
+
+            eyes: "Almond",
+
+            brows: "Defined",
+
+            nose: "Straight",
+
+            personality:
+                "ಸಾಂಪ್ರದಾಯಿಕ ಮುಖ ಓದು ಪ್ರಕಾರ, ಸಮತೋಲನದ ಮುಖದ ಆಕಾರವನ್ನು ಸ್ಥಿರತೆ, ಹೊಂದಿಕೊಳ್ಳುವಿಕೆ ಮತ್ತು ಶಾಂತ ಸ್ವಭಾವದ ಸಂಕೇತವಾಗಿ ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.",
+
+            career:
+                "ಯೋಜನೆ, ಸಂವಹನ ಮತ್ತು ಜನರೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುವ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಆಸಕ್ತಿ ಇರಬಹುದು ಎಂದು ಈ ಪರಂಪರೆಯ ಓದು ಸೂಚಿಸುತ್ತದೆ.",
+
+            finance:
+                "ಹಣಕಾಸಿನಲ್ಲಿ ಯೋಜನೆ ಮತ್ತು ಉಳಿತಾಯಕ್ಕೆ ಆದ್ಯತೆ ನೀಡುವುದು ಉತ್ತಮ ಎಂಬ ಸಾಂಪ್ರದಾಯಿಕ ಸೂಚನೆ.",
+
+            relationship:
+                "ನಂಬಿಕೆ, ಗೌರವ ಮತ್ತು ಸ್ಪಷ್ಟ ಸಂವಹನವನ್ನು ಮುಖ್ಯವಾಗಿ ನೋಡುವ ಸ್ವಭಾವದ ಸಂಕೇತ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.",
+
+            num: 3,
+
+            color: "ನೀಲಿ / Blue"
+
+        },
+
+
+        {
+
+            shape: "Round",
+
+            eyes: "Bright",
+
+            brows: "Balanced",
+
+            nose: "Rounded",
+
+            personality:
+                "ಸಾಂಪ್ರದಾಯಿಕ ಓದಿನಲ್ಲಿ ದುಂಡು ಮುಖವನ್ನು ಸ್ನೇಹಪರತೆ, ಉತ್ಸಾಹ ಮತ್ತು ಸಾಮಾಜಿಕ ಮನೋಭಾವದೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತದೆ.",
+
+            career:
+                "ಜನಸಂಪರ್ಕ, ಸೇವೆ, ಮಾರಾಟ ಅಥವಾ ತಂಡದ ಕೆಲಸದಂತಹ ಕ್ಷೇತ್ರಗಳಿಗೆ ಹೊಂದಿಕೊಳ್ಳುವ ಗುಣಗಳ ಸಂಕೇತ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.",
+
+            finance:
+                "ಖರ್ಚು ಮತ್ತು ಉಳಿತಾಯದ ನಡುವೆ ಸಮತೋಲನ ಕಾಯ್ದುಕೊಳ್ಳುವುದು ಒಳಿತು ಎಂಬ ಮನರಂಜನಾ ಸೂಚನೆ.",
+
+            relationship:
+                "ಆಪ್ತತೆ, ಸ್ನೇಹ ಮತ್ತು ಭಾವನಾತ್ಮಕ ಬೆಂಬಲಕ್ಕೆ ಹೆಚ್ಚಿನ ಮಹತ್ವ ನೀಡುವ ಸ್ವಭಾವ ಎಂದು ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ಹೇಳಲಾಗುತ್ತದೆ.",
+
+            num: 6,
+
+            color: "ಹಸಿರು / Green"
+
+        },
+
+
+        {
+
+            shape: "Square",
+
+            eyes: "Sharp",
+
+            brows: "Strong",
+
+            nose: "Defined",
+
+            personality:
+                "ಸಾಂಪ್ರದಾಯಿಕ face reading ನಲ್ಲಿ ಚೌಕಾಕಾರದ ಮುಖವನ್ನು ದೃಢತೆ, ನಿರ್ಧಾರಶಕ್ತಿ ಮತ್ತು ಆತ್ಮವಿಶ್ವಾಸದೊಂದಿಗೆ ಜೋಡಿಸಲಾಗುತ್ತದೆ.",
+
+            career:
+                "ನಿರ್ವಹಣೆ, ಉದ್ಯಮ, ಸಂಘಟನೆ ಮತ್ತು ಜವಾಬ್ದಾರಿಯ ಕೆಲಸಗಳಿಗೆ ಸೂಕ್ತವಾದ ಗುಣಗಳ ಸಂಕೇತ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.",
+
+            finance:
+                "ಗುರಿ ನಿಗದಿ ಮಾಡಿಕೊಂಡು ಹಂತ ಹಂತವಾಗಿ ಹಣಕಾಸು ಯೋಜನೆ ಮಾಡುವುದು ಉತ್ತಮ ಎಂಬ ಮನರಂಜನಾ ಸೂಚನೆ.",
+
+            relationship:
+                "ಪ್ರಾಮಾಣಿಕತೆ ಮತ್ತು ನಿಷ್ಠೆಗೆ ಹೆಚ್ಚಿನ ಮೌಲ್ಯ ನೀಡುವ ಸ್ವಭಾವದ ಸಂಕೇತ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.",
+
+            num: 8,
+
+            color: "ಹಳದಿ / Yellow"
+
+        },
+
+
+        {
+
+            shape: "Heart",
+
+            eyes: "Expressive",
+
+            brows: "Arched",
+
+            nose: "Fine",
+
+            personality:
+                "ಹೃದಯಾಕಾರದ ಮುಖವನ್ನು ಸೃಜನಶೀಲತೆ, ಕಲ್ಪನೆ ಮತ್ತು ಸೂಕ್ಷ್ಮ ಭಾವನೆಗಳೊಂದಿಗೆ ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತದೆ.",
+
+            career:
+                "ಸೃಜನಶೀಲತೆ, ಮಾಧ್ಯಮ, ಕಲೆ, ವಿನ್ಯಾಸ ಅಥವಾ ಹೊಸ ಆಲೋಚನೆಗಳ ಅಗತ್ಯವಿರುವ ಕೆಲಸಗಳಲ್ಲಿ ಆಸಕ್ತಿ ಇರಬಹುದು ಎಂಬ ಮನರಂಜನಾ ಓದು.",
+
+            finance:
+                "ಆದಾಯದ ಜೊತೆಗೆ ನಿಯಮಿತ ಉಳಿತಾಯದ ಅಭ್ಯಾಸ ಬೆಳೆಸುವುದು ಒಳಿತು ಎಂಬ ಸಾಮಾನ್ಯ ಸೂಚನೆ.",
+
+            relationship:
+                "ಭಾವನೆಗಳನ್ನು ಗೌರವಿಸುವ ಮತ್ತು ಆತ್ಮೀಯತೆಯನ್ನು ಬಯಸುವ ಸ್ವಭಾವದ ಸಂಕೇತ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.",
+
+            num: 9,
+
+            color: "ನೇರಳೆ / Purple"
+
+        }
+
+    ];
+
+
+    /* =====================================================
+       SHOW SCREEN
+    ===================================================== */
+
+    function show(id) {
+
+        const screens = [
+            "home",
+            "analysis",
+            "report"
+        ];
+
+        screens.forEach(function(screen) {
+
+            $(screen).classList.toggle(
+                "hidden",
+                screen !== id
+            );
+
+        });
+
+        window.scrollTo(0, 0);
+
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    function toast(message) {
+
+        const element = $("toast");
+
+        element.textContent = message;
+
+        element.style.display = "block";
+
+        setTimeout(function() {
+
+            element.style.display = "none";
+
+        }, 2200);
+
+    }
+
+
+    /* =====================================================
+       CAMERA
+    ===================================================== */
+
+    function openCamera() {
+
+        $("camera").click();
+
+    }
+
+
+    /* =====================================================
+       GALLERY
+    ===================================================== */
+
+    function openGallery() {
+
+        $("gallery").click();
+
+    }
+
+
+    /* =====================================================
+       FILE EVENT LISTENERS
+    ===================================================== */
+
+    $("camera").addEventListener(
+        "change",
+        function(event) {
+
+            loadPhoto(event.target);
+
+        }
+    );
+
+
+    $("gallery").addEventListener(
+        "change",
+        function(event) {
+
+            loadPhoto(event.target);
+
+        }
+    );
+
+
+    /* =====================================================
+       LOAD PHOTO
+    ===================================================== */
+
+    function loadPhoto(input) {
+
+        const file = input.files[0];
+
+        if (!file) {
+
+            return;
+
+        }
+
+
+        /* Check image */
+
+        if (!file.type.startsWith("image/")) {
+
+            toast("Please select an image");
+
+            return;
+
+        }
+
+
+        /* Release previous object URL */
+
+        if (lastUrl) {
+
+            URL.revokeObjectURL(lastUrl);
+
+        }
+
+
+        /* Create image URL */
+
+        lastUrl =
+            URL.createObjectURL(file);
+
+
+        /* Analysis image */
+
+        $("photo").src = lastUrl;
+
+
+        /* Report image */
+
+        $("reportPhoto").innerHTML =
+            '<img class="preview" src="' +
+            lastUrl +
+            '" alt="Face photo">';
+
+
+        /* Open analysis */
+
+        show("analysis");
+
+
+        /* Start analysis */
+
+        runAnalysis();
+
+    }
+
+
+    /* =====================================================
+       RUN ANALYSIS
+    ===================================================== */
+
+    function runAnalysis() {
+
+        const bar = $("bar");
+
+        const checks = $("checks");
+
+
+        bar.style.width = "0%";
+
+        checks.innerHTML = "";
+
+
+        let items;
+
+
+        if (currentLang === "kn") {
+
+            items = [
+
+                "ಮುಖ ಪತ್ತೆ",
+
+                "ಮುಖದ ಆಕಾರ",
+
+                "ಕಣ್ಣುಗಳ ಪ್ರದೇಶ",
+
+                "ಹುಬ್ಬುಗಳ ಪ್ರದೇಶ",
+
+                "ಮೂಗು ಮತ್ತು ತುಟಿ ಪ್ರದೇಶ"
+
+            ];
+
+        }
+
+        else {
+
+            items = [
+
+                "Face detected",
+
+                "Face shape",
+
+                "Eye area",
+
+                "Eyebrow area",
+
+                "Nose & lip area"
+
+            ];
+
+        }
+
+
+        items.forEach(
+            function(text, index) {
+
+                setTimeout(
+                    function() {
+
+                        bar.style.width =
+                            ((index + 1) * 20) + "%";
+
+
+                        checks.innerHTML +=
+                            '<div style="padding:7px 0">' +
+                            "✓ " +
+                            text +
+                            "</div>";
+
+
+                        if (index < 4) {
+
+                            $("analysisStatus")
+                                .textContent =
+                                currentLang === "kn"
+                                    ? "ವಿಶ್ಲೇಷಣೆ ನಡೆಯುತ್ತಿದೆ…"
+                                    : "Analysis in progress…";
+
+                        }
+
+                        else {
+
+                            $("analysisStatus")
+                                .textContent =
+                                currentLang === "kn"
+                                    ? "ವರದಿ ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ…"
+                                    : "Preparing report…";
+
+                        }
+
+                    },
+
+                    450 * (index + 1)
+
+                );
+
+            }
+        );
+
+
+        /* Show report */
+
+        setTimeout(
+            function() {
+
+                makeReport();
+
+            },
+            2700
+        );
+
+    }
+
+
+    /* =====================================================
+       GENERATE REPORT
+    ===================================================== */
+
+    function makeReport() {
+
+        /* Random demo reading */
+
+        const randomIndex =
+            Math.floor(
+                Math.random() * readings.length
+            );
+
+
+        currentData =
+            readings[randomIndex];
+
+
+        /* Tags */
+
+        $("tags").innerHTML =
+
+            '<span class="tag">' +
+            "ಮುಖ: " +
+            currentData.shape +
+            "</span>" +
+
+            '<span class="tag">' +
+            "ಕಣ್ಣು: " +
+            currentData.eyes +
+            "</span>" +
+
+            '<span class="tag">' +
+            "ಹುಬ್ಬು: " +
+            currentData.brows +
+            "</span>" +
+
+            '<span class="tag">' +
+            "ಮೂಗು: " +
+            currentData.nose +
+            "</span>";
+
+
+        /* Results */
+
+        $("personality").textContent =
+            currentData.personality;
+
+
+        $("career").textContent =
+            currentData.career;
+
+
+        $("finance").textContent =
+            currentData.finance;
+
+
+        $("relationship").textContent =
+            currentData.relationship;
+
+
+        $("number").textContent =
+            currentData.num;
+
+
+        $("color").textContent =
+            currentData.color;
+
+
+        /* Open report */
+
+        show("report");
+
+    }
+
+
+    /* =====================================================
+       SHARE REPORT
+    ===================================================== */
+
+    async function shareReport() {
+
+        if (!currentData) {
+
+            return;
+
+        }
+
+
+        const text =
+
+            "ಮುಖ ಜ್ಯೋತಿಷ್ಯ ವರದಿ\n\n" +
+
+            "ಮುಖ: " +
+            currentData.shape +
+            "\n\n" +
+
+            "ವ್ಯಕ್ತಿತ್ವ: " +
+            currentData.personality +
+            "\n\n" +
+
+            "Lucky Number: " +
+            currentData.num;
+
+
+        /* Android Web Share */
+
+        if (navigator.share) {
+
+            try {
+
+                await navigator.share({
+
+                    title: "ಮುಖ ಜ್ಯೋತಿಷ್ಯ",
+
+                    text: text
+
+                });
+
+            }
+
+            catch (error) {
+
+                /* User cancelled */
+
+            }
+
+        }
+
+        else {
+
+            /* Clipboard fallback */
+
+            try {
+
+                await navigator.clipboard.writeText(text);
+
+                toast("Report copied");
+
+            }
+
+            catch (error) {
+
+                toast("Share not supported");
+
+            }
+
+        }
+
+    }
+
+
+    /* =====================================================
+       SAVE REPORT
+    ===================================================== */
+
+    function saveReport() {
+
+        window.print();
+
+    }
+
+
+    /* =====================================================
+       LANGUAGE TOGGLE
+    ===================================================== */
+
+    function toggleLang() {
+
+        if (currentLang === "kn") {
+
+            currentLang = "en";
+
+
+            $("title").textContent =
+                "Face Astrology";
+
+
+            $("heroText").textContent =
+                "Traditional reading based on facial features";
+
+
+            $("takeTxt").textContent =
+                "Take a photo";
+
+
+            $("startBtn").textContent =
+                "🔮 Start Face Reading";
+
+
+            $("analysisTitle").textContent =
+                "Photo Analysis";
+
+
+            $("reportTitle").textContent =
+                "Your Face Reading";
+
+
+            $("disclaimer").textContent =
+                "For entertainment only. Personality or future cannot be scientifically determined from facial features.";
+
+
+            $("takeBtn").textContent =
+                "Take Photo";
+
+
+            $("chooseBtn").textContent =
+                "Choose";
+
+
+            $("langBtn").textContent =
+                "EN / ಕನ್ನಡ";
+
+        }
+
+        else {
+
+            currentLang = "kn";
+
+
+            $("title").textContent =
+                "ಮುಖ ಜ್ಯೋತಿಷ್ಯ";
+
+
+            $("heroText").textContent =
+                "ನಿಮ್ಮ ಮುಖದ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಆಧರಿಸಿದ ಸಾಂಪ್ರದಾಯಿಕ ಓದು";
+
+
+            $("takeTxt").textContent =
+                "ಫೋಟೋ ತೆಗೆದುಕೊಳ್ಳಿ";
+
+
+            $("startBtn").textContent =
+                "🔮 Face Reading ಪ್ರಾರಂಭಿಸಿ";
+
+
+            $("analysisTitle").textContent =
+                "ಫೋಟೋ ವಿಶ್ಲೇಷಣೆ";
+
+
+            $("reportTitle").textContent =
+                "ನಿಮ್ಮ ಮುಖದ ಓದು";
+
+
+            $("disclaimer").textContent =
+                "ಮನರಂಜನೆಗಾಗಿ ಮಾತ್ರ. ಮುಖದ ವೈಶಿಷ್ಟ್ಯಗಳಿಂದ ವ್ಯಕ್ತಿತ್ವ ಅಥವಾ ಭವಿಷ್ಯವನ್ನು ವೈಜ್ಞಾನಿಕವಾಗಿ ನಿರ್ಧರಿಸಲಾಗುವುದಿಲ್ಲ.";
+
+
+            $("takeBtn").textContent =
+                "Take Photo";
+
+
+            $("chooseBtn").textContent =
+                "Choose";
+
+
+            $("langBtn").textContent =
+                "ಕನ್ನಡ / EN";
+
+        }
+
+    }
+
+</script>
+
+</body>
+
+</html>
